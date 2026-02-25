@@ -19,5 +19,15 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+
+	_, _, err = client.Collection("test").Add(ctx, map[string]interface{}{
+		"name":    "jiro",
+		"age":     30,
+		"country": "Japan",
+	})
+	if err != nil {
+		log.Fatalln(err)
+	}
 	defer client.Close()
+
 }
